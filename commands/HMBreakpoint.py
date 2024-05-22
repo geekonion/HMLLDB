@@ -34,9 +34,14 @@ import HMTrace
 
 
 def __lldb_init_module(debugger, internal_dict):
-    debugger.HandleCommand('command script add -f HMBreakpoint.breakpoint_frame bpframe -h "Set a breakpoint that stops only when the specified stack keyword is matched."')
-    debugger.HandleCommand('command script add -f HMBreakpoint.breakpoint_next_oc_method bpmethod -h "Set a breakpoint that stops when the next OC method is called(via objc_msgSend) in the current thread."')
-    debugger.HandleCommand('command script add -f HMBreakpoint.breakpoint_message bpmessage -h "Set a breakpoint for a selector on a class, even if the class itself doesn\'t override that selector."')
+    debugger.HandleCommand('command script add -f HMBreakpoint.breakpoint_frame bpframe '
+                           '-h "Set a breakpoint that stops only when the specified stack keyword is matched."')
+    debugger.HandleCommand('command script add -f HMBreakpoint.breakpoint_next_oc_method bpmethod '
+                           '-h "Set a breakpoint that stops when the next OC method is called(via objc_msgSend) '
+                           'in the current thread."')
+    debugger.HandleCommand('command script add -f HMBreakpoint.breakpoint_message bpmessage '
+                           '-h "Set a breakpoint for a selector on a class, '
+                           'even if the class itself doesn\'t override that selector."')
 
 
 def breakpoint_frame(debugger, command, exe_ctx, result, internal_dict):

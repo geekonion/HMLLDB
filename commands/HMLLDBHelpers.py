@@ -60,7 +60,8 @@ def int_value_from_string(integer_str: str) -> Tuple[bool, int]:
         else:
             integer_value = int(integer_str)
         return True, integer_value
-    except:
+    except Exception as exception:
+        print(exception)
         return False, 0
 
 

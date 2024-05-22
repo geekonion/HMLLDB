@@ -32,10 +32,14 @@ import HMLLDBHelpers as HM
 
 
 def __lldb_init_module(debugger, internal_dict):
-    debugger.HandleCommand('command script add -f HMTrace.trace_function tracefunction -h "Trace functions step by step until the next breakpoint is hit."')
-    debugger.HandleCommand('command script add -f HMTrace.trace_instruction traceinstruction -h "Trace instructions step by step until the next breakpoint is hit."')
-    debugger.HandleCommand('command script add -f HMTrace.trace_step_over_instruction trace-step-over-instruction -h "Trace step over instruction."')
-    debugger.HandleCommand('command script add -f HMTrace.complete_backtrace cbt -h "Completely displays the current thread\'s call stack based on the fp/lr register."')
+    debugger.HandleCommand('command script add -f HMTrace.trace_function tracefunction '
+                           '-h "Trace functions step by step until the next breakpoint is hit."')
+    debugger.HandleCommand('command script add -f HMTrace.trace_instruction traceinstruction '
+                           '-h "Trace instructions step by step until the next breakpoint is hit."')
+    debugger.HandleCommand('command script add -f HMTrace.trace_step_over_instruction trace-step-over-instruction '
+                           '-h "Trace step over instruction."')
+    debugger.HandleCommand('command script add -f HMTrace.complete_backtrace cbt '
+                           '-h "Completely displays the current thread\'s call stack based on the fp/lr register."')
 
 
 g_function_limit: int = -1
